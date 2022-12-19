@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  mijncv_api:
+    image: ${DOCKER_REGISTRY-}mijncvapi
+    build:
+      context: .
+      dockerfile: MijnCV_API/Dockerfile
+    ports:
+      - "7059:80"
+      - "7060:443"
+    depends_on:
+      - sqlserverdb
+      
+  sqlserverdb:
+     image: "mcr.microsoft.com/mssql/server:2022-latest"
+     environment:
+      - ACCEPT_EULA=y
+      - MSSQL_SA_PASSWORD=SQL12345.
+     ports:
+      - "1450:1433"
