@@ -10,11 +10,11 @@ namespace MijnCV_API.Test.Services
 {
     internal class SectionServiceFake : ISectionService
     {
-        private readonly List<Section> _sectionCart;
+        private readonly List<Section> _section;
 
         public SectionServiceFake()
         {
-            _sectionCart = new List<Section>()
+            _section = new List<Section>()
             {
                 new Section() { ID = 1, CV = "TestCV1", Layout = 1, PageID = 1, Paragraph="Dit is een test1", Position = 1, Title="Test1"},
                 new Section() { ID = 2, CV = "TestCV2", Layout = 2, PageID = 2, Paragraph="Dit is een test2", Position = 1, Title="Test2"},
@@ -24,37 +24,37 @@ namespace MijnCV_API.Test.Services
 
         public Task<bool> DeleteSection(int id)
         {
-            var Section = _sectionCart.First(s => s.ID == id);
+            var Section = _section.First(s => s.ID == id);
             if (Section == null)
             {
                 return Task.FromResult(true);
             }
 
-            _sectionCart.Remove(Section);
+            _section.Remove(Section);
 
             return Task.FromResult(false);
         }
 
         public Task<Section?> GetSection(int id)
         {
-            var Section = _sectionCart.Where(s => s.ID == id).FirstOrDefault();
+            var Section = _section.Where(s => s.ID == id).FirstOrDefault();
             return Task.FromResult(Section);
         }
 
         public Task<List<Section>> GetSections()
         {
-            return Task.FromResult(_sectionCart);
+            return Task.FromResult(_section);
         }
 
         public bool SectionExists(int id)
         {
-            return _sectionCart.Any(s => s.ID == id);
+            return _section.Any(s => s.ID == id);
         }
 
         public Task PostSection(Section Section)
         {
-            Section.ID = _sectionCart.Last().ID + 1;
-            _sectionCart.Add(Section);
+            Section.ID = _section.Last().ID + 1;
+            _section.Add(Section);
             return Task.FromResult(Section);
         }
 
@@ -65,11 +65,11 @@ namespace MijnCV_API.Test.Services
                 return Task.FromResult(true);
             }
 
-            _sectionCart.First(s => s.ID == id).CV = Section.CV;
-            _sectionCart.First(s => s.ID == id).Layout = Section.Layout;
-            _sectionCart.First(s => s.ID == id).PageID = Section.PageID;
-            _sectionCart.First(s => s.ID == id).Position = Section.Position;
-            _sectionCart.First(s => s.ID == id).Title = Section.Title;
+            _section.First(s => s.ID == id).CV = Section.CV;
+            _section.First(s => s.ID == id).Layout = Section.Layout;
+            _section.First(s => s.ID == id).PageID = Section.PageID;
+            _section.First(s => s.ID == id).Position = Section.Position;
+            _section.First(s => s.ID == id).Title = Section.Title;
 
             return Task.FromResult(false);
         }

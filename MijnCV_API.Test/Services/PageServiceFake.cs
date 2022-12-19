@@ -11,11 +11,11 @@ namespace MijnCV_API.Test.Services
 {
     internal class PageServiceFake : IPageService
     {
-        private readonly List<Page> _pageCart;
+        private readonly List<Page> _page;
 
         public PageServiceFake()
         {
-            _pageCart = new List<Page>()
+            _page = new List<Page>()
             {
                 new Page() { Id = 1, UserID = 1, Name="Main" },
                 new Page() { Id = 2, UserID = 1, Name="Second" },
@@ -26,37 +26,37 @@ namespace MijnCV_API.Test.Services
 
         public Task<bool> DeletePage(int id)
         {
-            var page = _pageCart.First(p => p.Id == id);
+            var page = _page.First(p => p.Id == id);
             if (page == null)
             {
                 return Task.FromResult(true);
             }
 
-            _pageCart.Remove(page);
+            _page.Remove(page);
 
             return Task.FromResult(false);
         }
 
         public Task<Page?> GetPage(int id)
         {
-            var page = _pageCart.Where(p => p.Id == id).FirstOrDefault();
+            var page = _page.Where(p => p.Id == id).FirstOrDefault();
             return Task.FromResult(page);
         }
 
         public Task<List<Page>> GetPages()
         {
-            return Task.FromResult(_pageCart);
+            return Task.FromResult(_page);
         }
 
         public bool PageExists(int id)
         {
-            return _pageCart.Any(p => p.Id == id);
+            return _page.Any(p => p.Id == id);
         }
 
         public Task PostPage(Page page)
         {
-            page.Id = _pageCart.Last().Id + 1;
-            _pageCart.Add(page);
+            page.Id = _page.Last().Id + 1;
+            _page.Add(page);
             return Task.FromResult(page);
         }
 
@@ -67,8 +67,8 @@ namespace MijnCV_API.Test.Services
                 return Task.FromResult(true);
             }
 
-            _pageCart.First(p => p.Id == id).Name = page.Name;
-            _pageCart.First(p => p.Id == id).UserID = page.UserID;
+            _page.First(p => p.Id == id).Name = page.Name;
+            _page.First(p => p.Id == id).UserID = page.UserID;
 
             return Task.FromResult(false);
         }
