@@ -22,10 +22,10 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: /MijnCV_API/MijnCV_API.sln
+      working-directory: ./MijnCV_API/MijnCV_API.sln
     - name: Build
       run: dotnet build --no-restore
-      working-directory: /MijnCV_API/MijnCV_API.sln
+      working-directory: ./MijnCV_API/MijnCV_API.sln
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      working-directory: /MijnCV_API/MijnCV_API.sln
+      working-directory: ./MijnCV_API/MijnCV_API.sln
