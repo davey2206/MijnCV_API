@@ -28,4 +28,4 @@ jobs:
       working-directory: ./MijnCV_API/
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      working-directory: /home/runner/work/MijnCV_API/MijnCV_API/MijnCV_API.test/MijnCV_API.test.csproj
+      working-directory: ./MijnCV_API/
