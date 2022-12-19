@@ -16,7 +16,6 @@ builder.Services.AddDbContext<MijnCVContext>(opt => opt.UseSqlServer(builder.Con
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ISectionService, SectionService>();
 builder.Services.AddScoped<IPageService, PageService>();
-builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins, policy =>{
