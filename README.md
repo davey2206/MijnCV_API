@@ -7,6 +7,7 @@
 | POST   | /Sections      | Post a Section        |
 | PUT    | /Sections/{ID} | Updates Section       |
 | DELETE | /Sections/{ID} | Deletes Section       |
+| GET | /Sections/User/{ID} | Gets all Sections By User      |
 
 # Page service
 
@@ -17,3 +18,4 @@
 | POST   | /Pages      | Post a Page        |
 | PUT    | /Pages/{ID} | Updates Page       |
 | DELETE | /Pages/{ID} | Deletes Page       |
+| GET | /Pages/User/{ID} | Gets all Pages By User      |
