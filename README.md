@@ -7,7 +7,7 @@
 | POST   | /Sections      | Post a Section        |
 | PUT    | /Sections/{ID} | Updates Section       |
 | DELETE | /Sections/{ID} | Deletes Section       |
-| GET | /Sections/CV/{ID} | Gets all Sections By CV      |
+| GET | /Sections/CV/{STRING} | Gets all Sections By CV      |
 
 # Page service
 
@@ -18,4 +18,4 @@
 | POST   | /Pages      | Post a Page        |
 | PUT    | /Pages/{ID} | Updates Page       |
 | DELETE | /Pages/{ID} | Deletes Page       |
-| GET | /Pages/CV/{ID} | Gets all Pages By CV      |
+| GET | /Pages/CV/{STRING} | Gets all Pages By CV      |
