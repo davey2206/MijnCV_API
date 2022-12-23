@@ -17,10 +17,10 @@ namespace MijnCV_API.Test.Services
         {
             _page = new List<Page>()
             {
-                new Page() { Id = 1, UserID = 1, Name="Main" },
-                new Page() { Id = 2, UserID = 1, Name="Second" },
-                new Page() { Id = 3, UserID = 2, Name="Main" },
-                new Page() { Id = 4, UserID = 2, Name="Second" },
+                new Page() { Id = 1, cv = "1", Name="Main" },
+                new Page() { Id = 2, cv = "1", Name="Second" },
+                new Page() { Id = 3, cv = "2", Name="Main" },
+                new Page() { Id = 4, cv = "2", Name="Second" },
             };
         }
 
@@ -68,9 +68,14 @@ namespace MijnCV_API.Test.Services
             }
 
             _page.First(p => p.Id == id).Name = page.Name;
-            _page.First(p => p.Id == id).UserID = page.UserID;
+            _page.First(p => p.Id == id).cv = page.cv;
 
             return Task.FromResult(false);
+        }
+
+        public Task<List<Page>> GetPagesByCV(string cv)
+        {
+            throw new NotImplementedException();
         }
     }
 }

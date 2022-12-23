@@ -68,5 +68,10 @@ namespace MijnCV_API.Services
         {
             return _context.Pages.Any(e => e.Id == id);
         }
+
+        public async Task<List<Page>> GetPagesByCV(string cv)
+        {
+            return await _context.Pages.Where(p => p.cv == cv).ToListAsync();
+        }
     }
 }

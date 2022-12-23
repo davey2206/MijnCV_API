@@ -26,10 +26,10 @@ namespace MijnCV_API.Test
         {
             var expected = new List<Page>()
             {
-                new Page() { Id = 1, UserID = 1, Name="Main" },
-                new Page() { Id = 2, UserID = 1, Name="Second" },
-                new Page() { Id = 3, UserID = 2, Name="Main" },
-                new Page() { Id = 4, UserID = 2, Name="Second" },
+                new Page() { Id = 1, cv = "1", Name="Main" },
+                new Page() { Id = 2, cv = "1", Name="Second" },
+                new Page() { Id = 3, cv = "2", Name="Main" },
+                new Page() { Id = 4, cv = "2", Name="Second" },
             };
             var Result = _controller.GetPages();
 
@@ -41,7 +41,7 @@ namespace MijnCV_API.Test
         [Fact]
         public void GetPagesTest()
         {
-            Page expected = new Page() { Id = 1, UserID = 1, Name = "Main" };
+            Page expected = new Page() { Id = 1, cv = "1", Name = "Main" };
             var Result = _controller.GetPage(1);
 
             Assert.NotNull(Result);
@@ -54,9 +54,9 @@ namespace MijnCV_API.Test
         {
             var expected = new List<Page>()
             {
-                new Page() { Id = 2, UserID = 1, Name="Second" },
-                new Page() { Id = 3, UserID = 2, Name="Main" },
-                new Page() { Id = 4, UserID = 2, Name="Second" },
+                new Page() { Id = 2, cv = "1", Name="Second" },
+                new Page() { Id = 3, cv = "2", Name="Main" },
+                new Page() { Id = 4, cv = "2", Name="Second" },
             };
 
             var result = _service.DeletePage(1);
@@ -77,14 +77,14 @@ namespace MijnCV_API.Test
         {
             var expected = new List<Page>()
             {
-                new Page() { Id = 1, UserID = 1, Name="Main" },
-                new Page() { Id = 2, UserID = 1, Name="Second" },
-                new Page() { Id = 3, UserID = 2, Name="Main" },
-                new Page() { Id = 4, UserID = 2, Name="Second" },
-                new Page() { Id = 5, UserID = 3, Name="Main" },
+                new Page() { Id = 1, cv = "1", Name="Main" },
+                new Page() { Id = 2, cv = "1", Name="Second" },
+                new Page() { Id = 3, cv = "2", Name="Main" },
+                new Page() { Id = 4, cv = "2", Name="Second" },
+                new Page() { Id = 5, cv = "3", Name="Main" },
             };
 
-            Page page = new Page() { UserID = 3, Name = "Main" };
+            Page page = new Page() { cv = "3", Name = "Main" };
 
             var result = _service.PostPage(page);
             var test = _controller.GetPages();

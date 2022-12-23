@@ -81,5 +81,11 @@ namespace MijnCV_API.Controllers
 
             return NoContent();
         }
+
+        [HttpGet("CV/{cv}")]
+        public async Task<ActionResult<IEnumerable<Section>>> GetSectionsByCV(string cv)
+        {
+            return await _SectionService.GetSectionsByCV(cv);
+        }
     }
 }

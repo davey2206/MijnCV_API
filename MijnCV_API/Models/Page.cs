@@ -3,7 +3,7 @@
     public class Page
     {
         public int Id { get; set; }
-        public int UserID { get; set; }
+        public string cv { get; set; }
         public string Name { get; set; }
     }
 }

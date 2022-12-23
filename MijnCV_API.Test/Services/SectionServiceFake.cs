@@ -73,5 +73,10 @@ namespace MijnCV_API.Test.Services
 
             return Task.FromResult(false);
         }
+
+        public Task<List<Section>> GetSectionsByCV(string cv)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

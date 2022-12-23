@@ -68,5 +68,10 @@ namespace MijnCV_API.Services
         {
             return _context.Sections.Any(e => e.ID == id);
         }
+
+        public async Task<List<Section>> GetSectionsByCV(string cv)
+        {
+            return await _context.Sections.Where(s => s.CV == cv).ToListAsync();
+        }
     }
 }

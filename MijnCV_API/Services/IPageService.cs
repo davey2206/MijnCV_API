@@ -10,5 +10,6 @@ namespace MijnCV_API.Services
         public Task PostPage(Page page);
         public Task<bool> DeletePage(int id);
         public bool PageExists(int id);
+        public Task<List<Page>> GetPagesByCV(string cv);
     }
 }

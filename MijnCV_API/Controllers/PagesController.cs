@@ -81,5 +81,11 @@ namespace MijnCV_API.Controllers
             }
             return NoContent();
         }
+
+        [HttpGet("CV/{cv}")]
+        public async Task<ActionResult<IEnumerable<Page>>> GetPagesByCV(string cv)
+        {
+            return await _PageService.GetPagesByCV(cv);
+        }
     }
 }

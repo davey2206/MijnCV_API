@@ -10,5 +10,6 @@ namespace MijnCV_API.Services
         public Task PostSection(Section section);
         public Task<bool> DeleteSection(int id);
         public bool SectionExists(int id);
+        public Task<List<Section>> GetSectionsByCV(string cv);
     }
 }
