@@ -69,7 +69,15 @@ namespace MijnCV_API.Test
         [Fact]
         public void PutPageTest()
         {
+            Page expected = new Page() { Id = 1, cv = "1", Name = "Main2" };
+            Page page = new Page() { cv = "1", Name = "Main2" };
 
+            var Result = _service.PutPage(1, page);
+            var Result2 = _controller.GetPage(1);
+
+            Assert.NotNull(Result);
+            Assert.IsType<Task<bool>>(Result);
+            Result2.Result.Value.Should().Equals(expected);
         }
 
         [Fact]
@@ -91,6 +99,22 @@ namespace MijnCV_API.Test
 
             Assert.IsType<Task<Page>>(result);
             test.Result.Value.Should().Equals(expected);
+        }
+
+        [Fact]
+        public void GetPagesByCvTest()
+        {
+            var expected = new List<Page>()
+            {
+                new Page() { Id = 1, cv = "1", Name="Main" },
+                new Page() { Id = 2, cv = "1", Name="Second" },
+            };
+
+            var Result = _controller.GetPagesByCV("1");
+
+            Assert.NotNull(Result);
+            Assert.IsType<Task<ActionResult<IEnumerable<Page>>>>(Result);
+            Result.Result.Value.Should().Equals(expected);
         }
     }
 }

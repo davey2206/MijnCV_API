@@ -67,7 +67,15 @@ namespace MijnCV_API.Test
         [Fact]
         public void PutSectionTest()
         {
+            Section expected = new Section() { ID = 1, CV = "TestCV1", Layout = 2, PageID = 1, Paragraph = "Dit is een test1", Position = 1, Title = "Test1Test" };
+            Section section = new Section() { CV = "TestCV1", Layout = 2, PageID = 1, Paragraph = "Dit is een test1", Position = 1, Title = "Test1Test" };
 
+            var Result = _service.PutSection(1, section);
+            var Result2 = _controller.GetSection(1);
+
+            Assert.NotNull(Result);
+            Assert.IsType<Task<bool>>(Result);
+            Result2.Result.Value.Should().Equals(expected);
         }
 
         [Fact]
@@ -88,6 +96,20 @@ namespace MijnCV_API.Test
 
             Assert.IsType<Task<Section>>(result);
             test.Result.Value.Should().Equals(expected);
+        }
+
+        [Fact]
+        public void GetSectionsByCv()
+        {
+            var expected = new List<Section>()
+            {
+                new Section() { ID = 1, CV = "TestCV1", Layout = 1, PageID = 1, Paragraph="Dit is een test1", Position = 1, Title="Test1"},
+            };
+            var Result = _controller.GetSectionsByCV("TestCV1");
+
+            Assert.NotNull(Result);
+            Assert.IsType<Task<ActionResult<IEnumerable<Section>>>>(Result);
+            Result.Result.Value.Should().Equals(expected);
         }
     }
 }

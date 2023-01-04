@@ -75,7 +75,8 @@ namespace MijnCV_API.Test.Services
 
         public Task<List<Page>> GetPagesByCV(string cv)
         {
-            throw new NotImplementedException();
+            var page = _page.Where(p => p.cv == cv).ToList();
+            return Task.FromResult(page);
         }
     }
 }

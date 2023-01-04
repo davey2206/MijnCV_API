@@ -76,7 +76,8 @@ namespace MijnCV_API.Test.Services
 
         public Task<List<Section>> GetSectionsByCV(string cv)
         {
-            throw new NotImplementedException();
+            var Section = _section.Where(s => s.CV == cv).ToList();
+            return Task.FromResult(Section);
         }
     }
 }
