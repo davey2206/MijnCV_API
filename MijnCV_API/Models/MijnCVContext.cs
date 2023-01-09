@@ -16,5 +16,7 @@ namespace MijnCV_API.Models
         public virtual DbSet<Section>? Sections { get; set; }
 
         public virtual DbSet<Page>? Pages { get; set; }
+
+        public virtual DbSet<Statistics>? Statistics { get; set; }
     }
 }
